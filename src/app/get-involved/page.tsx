@@ -28,10 +28,28 @@ const items = [
     cta: "Explore partnerships",
   },
   {
+    title: "Current Needs",
+    body: "The organization has published a $600,000 operating and program funding goal, plus gift levels from $10,000 to $600,000.",
+    href: "/current-needs",
+    cta: "See current needs",
+  },
+  {
+    title: "In-Kind Needs",
+    body: "Meals, water, gas cards, discounts, and construction materials for training days.",
+    href: "/in-kind-needs",
+    cta: "See in-kind needs",
+  },
+  {
     title: "Ways to Give",
     body: "One-time or monthly gifts, mail and ACH, and in-kind support.",
     href: "/ways-to-give",
     cta: "Give now",
+  },
+  {
+    title: "Subscribe",
+    body: "The original Subscribe menu item points to a missing WordPress page. Use the newsletter page to view issues and ask to be added.",
+    href: "/newsletter",
+    cta: "Newsletter",
   },
 ];
 

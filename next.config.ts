@@ -16,6 +16,8 @@ const nextConfig: NextConfig = {
       },
       { source: "/donate", destination: "/ways-to-give", permanent: true },
       { source: "/donate/", destination: "/ways-to-give", permanent: true },
+      { source: "/subscribe", destination: "/newsletter", permanent: true },
+      { source: "/subscribe/", destination: "/newsletter", permanent: true },
     ];
   },
 };

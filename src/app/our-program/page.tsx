@@ -103,6 +103,9 @@ export default function ProgramPage() {
         </Note>
         <div className="mt-8 flex flex-wrap gap-3">
           <Button href="/join-the-program">Join the program</Button>
+          <Button href="/photo-gallery" variant="secondary">
+            Photo gallery
+          </Button>
           <Button href="/frequently-asked-questions" variant="secondary">
             Read the FAQ
           </Button>

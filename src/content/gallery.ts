@@ -5,7 +5,7 @@ export type GalleryPhoto = {
 };
 
 function photo(src: string, caption: string): GalleryPhoto {
-  const generic = /^IMG[\s_]/i.test(caption);
+  const generic = /^(IMG[\s_]|PHOTO |032626 )/i.test(caption);
   return {
     src,
     caption: generic ? "Photograph published on the original photo gallery." : caption,
@@ -73,4 +73,13 @@ export const galleryPhotos: GalleryPhoto[] = [
   photo("/imported/images/2025-09-IMG_6381.jpg", "IMG 6381"),
   photo("/imported/images/2024-05-Added-4.25.24-scaled.jpg", "Apprentice learning the proper measuring techniques."),
   photo("/imported/images/2025-09-IMG_6891.jpg", "IMG 6891"),
+  photo("/imported/images/2025-09-IMG_5925.jpg", "IMG 5925"),
+  photo("/imported/images/2024-04-PHOTO-2024-01-21-09-22-39-4.jpg", "PHOTO 2024 01 21 09 22 39 4"),
+  photo("/imported/images/2026-04-032626_MD_CornerStone_11-scaled.jpg", "032626 MD CornerStone 11"),
+  photo("/imported/images/2026-04-032626_MD_CornerStone_16-scaled.jpg", "032626 MD CornerStone 16"),
+  photo("/imported/images/2026-04-032626_MD_CornerStone_19-scaled.jpg", "032626 MD CornerStone 19"),
+  photo("/imported/images/2026-04-032626_MD_CornerStone_20-scaled.jpg", "032626 MD CornerStone 20"),
+  photo("/imported/images/2026-04-032626_MD_CornerStone_25-scaled.jpg", "032626 MD CornerStone 25"),
+  photo("/imported/images/2026-04-032626_MD_CornerStone_27-scaled.jpg", "032626 MD CornerStone 27"),
+  photo("/imported/images/2026-04-032626_MD_CornerStone_49-scaled.jpg", "032626 MD CornerStone 49"),
 ];

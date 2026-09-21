@@ -9,8 +9,27 @@ export type NavItem = {
 };
 
 export const primaryNav: NavItem[] = [
-  { label: "About", href: "/about" },
-  { label: "Our Program", href: "/our-program" },
+  {
+    label: "About",
+    href: "/about",
+    children: [
+      { label: "Mission | Vision | Values", href: "/mission-vision-values" },
+      { label: "Leadership", href: "/leadership" },
+      { label: "Our History", href: "/our-history" },
+      { label: "FAQ", href: "/frequently-asked-questions" },
+    ],
+  },
+  {
+    label: "Our Program",
+    href: "/our-program",
+    children: [
+      { label: "Program Overview", href: "/our-program" },
+      { label: "Program Results", href: "/our-impact" },
+      { label: "Testimonials", href: "/testmonials" },
+      { label: "Photo Gallery", href: "/photo-gallery" },
+      { label: "Join the Program", href: "/join-the-program" },
+    ],
+  },
   { label: "Our Impact", href: "/our-impact" },
   {
     label: "Get Involved",
@@ -19,7 +38,10 @@ export const primaryNav: NavItem[] = [
       { label: "Join the Program", href: "/join-the-program" },
       { label: "Volunteer", href: "/volunteer-opportunities" },
       { label: "Partner With Us", href: "/partner-with-us" },
+      { label: "Current Needs", href: "/current-needs" },
+      { label: "In-Kind Needs", href: "/in-kind-needs" },
       { label: "Ways to Give", href: "/ways-to-give" },
+      { label: "Subscribe", href: "/newsletter" },
     ],
   },
   {
@@ -57,6 +79,7 @@ export const footerNav = [
       { label: "Ways to Give", href: "/ways-to-give" },
       { label: "Current Needs", href: "/current-needs" },
       { label: "In-Kind Needs", href: "/in-kind-needs" },
+      { label: "Subscribe", href: "/newsletter" },
     ],
   },
   {

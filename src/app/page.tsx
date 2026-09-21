@@ -225,6 +225,30 @@ export default function HomePage() {
         </div>
       </Section>
 
+      <Section tone="white">
+        <Eyebrow>Watch and learn</Eyebrow>
+        <h2 className="text-3xl font-bold text-navy">Watch & Learn: Follow us for More Exclusive Videos</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-muted">
+          Explore our latest videos to stay updated with valuable content, tips,
+          and insights. If you enjoy our videos and want to stay in the loop, be
+          sure to follow us on our socials. New videos are added regularly.
+        </p>
+        <div className="relative mt-8 aspect-video overflow-hidden rounded-xl bg-navy">
+          <iframe
+            className="absolute inset-0 h-full w-full"
+            src="https://www.youtube-nocookie.com/embed/q1ad5aNnFEs"
+            title="Cornerstone Craftsman video from the original homepage"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+        <div className="mt-6">
+          <Button href="/calendar-demo" variant="navy">
+            Donate a meal
+          </Button>
+        </div>
+      </Section>
+
       <Section>
         <Eyebrow>Recent graduates</Eyebrow>
         <h2 className="text-3xl font-bold text-navy">Building Our Future: Recent Graduates</h2>
@@ -327,6 +351,7 @@ export default function HomePage() {
                 ["Simpson", "/images/partners/simpson.webp"],
                 ["Clark", "/images/partners/clark.svg"],
                 ["Alexandria Chamber", "/images/partners/chamber.png"],
+                ["Moms Demand Action", "/imported/images/2024-03-momsdemandaction.png"],
               ].map(([name, src]) => (
                 <div key={name} className="flex h-20 items-center justify-center rounded-md border border-line bg-cream p-3">
                   {/* Partner logos include SVG; native img is used for format compatibility. */}
