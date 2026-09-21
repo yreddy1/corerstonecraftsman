@@ -8,7 +8,7 @@ import { org } from "@/content/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [involvedOpen, setInvolvedOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
   const menuId = useId();
 
   useEffect(() => {
@@ -22,14 +22,12 @@ export function Header() {
     function onKey(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setOpen(false);
-        setInvolvedOpen(false);
+        setOpenMenu(null);
       }
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
-
-  const involved = primaryNav.find((item) => item.children);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-navy text-white">
@@ -60,30 +58,31 @@ export function Header() {
               );
             }
             if (item.children) {
+              const expanded = openMenu === item.label;
               return (
-                <div key={item.href} className="relative">
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => setOpenMenu(item.label)}
+                  onMouseLeave={() => setOpenMenu(null)}
+                >
                   <button
                     type="button"
                     className="rounded-md px-3 py-2 text-sm font-semibold text-white/90 hover:bg-white/10 hover:text-white"
-                    aria-expanded={involvedOpen}
+                    aria-expanded={expanded}
                     aria-haspopup="true"
-                    onClick={() => setInvolvedOpen((value) => !value)}
-                    onBlur={(event) => {
-                      if (!event.currentTarget.parentElement?.contains(event.relatedTarget)) {
-                        setInvolvedOpen(false);
-                      }
-                    }}
+                    onClick={() => setOpenMenu(expanded ? null : item.label)}
                   >
                     {item.label}
                   </button>
-                  {involvedOpen ? (
-                    <div className="absolute left-0 top-full mt-1 min-w-56 rounded-md border border-line bg-white py-2 text-navy shadow-card">
+                  {expanded ? (
+                    <div className="absolute left-0 top-full z-10 min-w-56 rounded-md border border-line bg-white py-2 text-navy shadow-card">
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
                           className="block px-4 py-2 text-sm font-medium hover:bg-sand"
-                          onClick={() => setInvolvedOpen(false)}
+                          onClick={() => setOpenMenu(null)}
                         >
                           {child.label}
                         </Link>
@@ -133,25 +132,26 @@ export function Header() {
             {primaryNav
               .filter((item) => !item.cta)
               .map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-md px-3 py-3 text-base font-semibold"
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </Link>
+                <div key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="block rounded-md px-3 py-3 text-base font-semibold"
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                  {item.children?.map((child) => (
+                    <Link
+                      key={child.href}
+                      href={child.href}
+                      className="block rounded-md px-6 py-2 text-sm text-white/85"
+                      onClick={() => setOpen(false)}
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
               ))}
-            {involved?.children?.map((child) => (
-              <Link
-                key={child.href}
-                href={child.href}
-                className="rounded-md px-6 py-2 text-sm text-white/85"
-                onClick={() => setOpen(false)}
-              >
-                {child.label}
-              </Link>
-            ))}
           </nav>
         </div>
       ) : null}

@@ -22,6 +22,14 @@ export const primaryNav: NavItem[] = [
       { label: "Ways to Give", href: "/ways-to-give" },
     ],
   },
+  {
+    label: "News",
+    href: "/in-the-news",
+    children: [
+      { label: "In the News", href: "/in-the-news" },
+      { label: "Newsletter", href: "/newsletter" },
+    ],
+  },
   { label: "Contact", href: "/contact-us" },
   { label: "Donate", href: "/ways-to-give", cta: true },
 ];
@@ -55,8 +63,8 @@ export const footerNav = [
     heading: "Connect",
     links: [
       { label: "Contact", href: "/contact-us" },
-      { label: "Newsletter", href: "/newsletter" },
       { label: "In the News", href: "/in-the-news" },
+      { label: "Newsletter", href: "/newsletter" },
       { label: "Calendar", href: "/calendar-demo" },
       { label: "Ribbon cutting", href: "/ribon-cutting" },
     ],
